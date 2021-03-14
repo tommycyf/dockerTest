@@ -1,11 +1,11 @@
-# AWS Docker Image
-FROM amazon/aws-lambda-nodejs:12
+FROM node:12-slim
 
-WORKDIR /usr/local/app
+WORKDIR /usr/src/app
 
-# Port
-EXPOSE 8000
+COPY . .
 
-COPY index.js ./
+RUN npm install
 
-CMD [ "/usr/local/app/index.handler" ]
+EXPOSE 5000
+
+CMD [ "node","." ]
