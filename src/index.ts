@@ -43,7 +43,7 @@ app.get("/db", async (req: any, res: any) => {
   console.log("connecting db");
   connection.query("SELECT * FROM user_table", (error, results) => {
     console.log(results);
-    res.json({ status: "success", body: results[0] });
+    res.json({ status: "success", body: results });
   });
 });
 
